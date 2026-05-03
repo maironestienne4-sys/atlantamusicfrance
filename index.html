@@ -1,105 +1,127 @@
-import { motion } from 'framer-motion';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent } from '@/components/ui/card';
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Atlanta Music France</title>
 
-export default function AtlantaMusicFranceWebsite() {
-  return (
-    <div className="min-h-screen bg-white text-black">
-      <header className="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-zinc-200">
-        <div className="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
-          <h1 className="text-2xl md:text-3xl font-semibold tracking-[0.3em]">ATLANTA MUSIC FRANCE</h1>
-          <nav className="hidden md:flex items-center gap-8 text-sm font-medium">
-            <a href="#home">Home</a>
-            <a href="#artists">Artists</a>
-            <a href="#about">About</a>
-            <a href="#news">News</a>
-            <a href="#contact">Contact</a>
-          </nav>
-        </div>
-      </header>
+  <style>
+    body {
+      margin: 0;
+      font-family: Helvetica, Arial, sans-serif;
+      background: #000;
+      color: #fff;
+    }
 
-      <section id="home" className="relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 py-24 md:py-36">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="max-w-4xl"
-          >
-            <p className="text-sm uppercase tracking-[0.4em] text-zinc-500 mb-6">Music • Culture • Innovation</p>
-            <h2 className="text-5xl md:text-7xl font-semibold leading-tight mb-8">
-              Shaping the Future of Music Entertainment.
-            </h2>
-            <p className="text-xl text-zinc-600 max-w-2xl mb-10">
-              Atlanta Music France develops artists, builds culture, and creates lasting impact across music, media, and entertainment.
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <Button className="rounded-full px-8 py-6 text-base">Explore Artists</Button>
-              <Button variant="outline" className="rounded-full px-8 py-6 text-base">Latest Releases</Button>
-            </div>
-          </motion.div>
-        </div>
-      </section>
+    header {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
 
-      <section id="artists" className="py-24 bg-zinc-50">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="mb-16">
-            <p className="text-sm uppercase tracking-[0.4em] text-zinc-500 mb-4">Featured</p>
-            <h3 className="text-4xl md:text-5xl font-semibold">Our Artists</h3>
-          </div>
-          <div className="grid md:grid-cols-3 gap-8">
-            {["Artist One", "Artist Two", "Artist Three"].map((artist) => (
-              <Card key={artist} className="rounded-3xl border-0 shadow-sm overflow-hidden">
-                <div className="aspect-[4/5] bg-zinc-200" />
-                <CardContent className="p-6">
-                  <h4 className="text-2xl font-medium">{artist}</h4>
-                  <p className="text-zinc-600 mt-2">Recording Artist</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
+    .brand {
+      font-size: 60px;
+      letter-spacing: 6px;
+      font-weight: 300;
+    }
 
-      <section id="about" className="py-24">
-        <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
-          <div>
-            <p className="text-sm uppercase tracking-[0.4em] text-zinc-500 mb-4">About</p>
-            <h3 className="text-4xl md:text-5xl font-semibold mb-8">A Modern Music Company.</h3>
-          </div>
-          <div>
-            <p className="text-lg text-zinc-600 leading-relaxed">
-              Atlanta Music France is dedicated to artist development, creative excellence, and global reach. We connect talent with audiences through innovative strategies, premium production, and a forward-thinking vision.
-            </p>
-          </div>
-        </div>
-      </section>
+    .sub {
+      margin-top: 15px;
+      font-size: 14px;
+      letter-spacing: 3px;
+      color: #999;
+      text-transform: uppercase;
+    }
 
-      <section id="news" className="py-24 bg-black text-white">
-        <div className="max-w-7xl mx-auto px-6">
-          <p className="text-sm uppercase tracking-[0.4em] text-zinc-400 mb-4">Latest</p>
-          <h3 className="text-4xl md:text-5xl font-semibold mb-16">News & Updates</h3>
-          <div className="grid md:grid-cols-3 gap-8">
-            {[1, 2, 3].map((item) => (
-              <article key={item} className="border border-zinc-800 rounded-3xl p-8 hover:border-zinc-600 transition-colors">
-                <p className="text-zinc-400 mb-4">May 2026</p>
-                <h4 className="text-2xl font-medium mb-4">New Project Announcement</h4>
-                <p className="text-zinc-400">Discover the latest releases, collaborations, and milestones from Atlanta Music France.</p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
+    nav {
+      margin-top: 30px;
+    }
 
-      <footer id="contact" className="py-16 border-t border-zinc-200">
-        <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
-          <div>
-            <h4 className="text-2xl font-semibold mb-2">Atlanta Music France</h4>
-            <p className="text-zinc-600">Building the next generation of music culture.</p>
-          </div>
-          <Button className="rounded-full px-8 py-6">Get in Touch</Button>
-        </div>
-      </footer>
-    </div>
-  );
-}
+    nav a {
+      margin: 0 10px;
+      text-decoration: none;
+      color: #fff;
+      font-size: 13px;
+      letter-spacing: 2px;
+      opacity: 0.7;
+    }
+
+    nav a:hover {
+      opacity: 1;
+    }
+
+    section {
+      padding: 120px 20px;
+      max-width: 900px;
+      margin: auto;
+      text-align: center;
+    }
+
+    h2 {
+      font-weight: 300;
+      letter-spacing: 4px;
+      font-size: 20px;
+      margin-bottom: 40px;
+    }
+
+    .artist {
+      border-top: 1px solid #222;
+      padding: 30px 0;
+    }
+
+    .artist h3 {
+      font-weight: 300;
+      letter-spacing: 2px;
+    }
+
+    .artist p {
+      color: #777;
+      font-size: 14px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px;
+      font-size: 12px;
+      color: #555;
+      letter-spacing: 2px;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="brand">ATLANTA MUSIC</div>
+  <div class="sub">France — Record Label</div>
+
+  <nav>
+    <a href="#">ARTISTS</a>
+    <a href="#">MUSIC</a>
+    <a href="#">CONTACT</a>
+  </nav>
+</header>
+
+<section>
+  <h2>ARTISTS</h2>
+
+  <div class="artist">
+    <h3>ARTIST ONE</h3>
+    <p>Contemporary sound — emotional & street influence</p>
+  </div>
+
+  <div class="artist">
+    <h3>ARTIST TWO</h3>
+    <p>Underground wave — minimal & dark aesthetic</p>
+  </div>
+</section>
+
+<footer>
+  ATLANTA MUSIC FRANCE © 2026 — ALL RIGHTS RESERVED
+</footer>
+
+</body>
+</html>
